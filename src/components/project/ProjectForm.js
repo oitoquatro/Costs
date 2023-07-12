@@ -6,8 +6,9 @@ import Input from '../form/input'
 import Select from '../form/Select'
 import SubmitButton from '../form/SubmitButton'
 
-function ProjectForm({ btnText }) {
+function ProjectForm({ handleSubmit, btnText, projectData }) {
   const [categories, setCategories] = useState([])
+  const [project, setProject] = useState(projectData || {})
 
   useEffect(() => {
     fetch("http://localhost:5000/categories", {
